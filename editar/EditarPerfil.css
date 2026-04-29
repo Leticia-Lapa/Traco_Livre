@@ -1,0 +1,218 @@
+:root {
+    --verde: #006A69;
+    --cinza: #3F4948;
+    --btn-bg: #035958;
+    --btn-color: white;
+    --bg: #fff;
+    --text-color: #222;
+    --max-width: 420px;
+    --radius: 8px;
+    --primary: #0a7269;
+    --voltar-bg: #D9D9D9;
+    --cd-email: #A2CEBC;
+    --notif: #EFF5F4;
+    --perfil-bg: #EFF5F4;
+    --bio-bg: #DDE4E3;
+    --form-bg: #DDE4E3;
+    --border: #ddd;
+     --top-bg: #fff;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+html, body {
+    background: var(--bg);
+    max-width: var(--max-width);
+  
+    height: 100%;
+
+    &.dark-mode{
+        background-color: black;
+        color: white;
+    }
+}
+.voltar {
+    margin-top: 5vh;
+    background: var(--voltar-bg);
+    padding: 6px;
+    border-radius: 3px;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 35px;
+    height: 45px;
+    align-self: stretch;
+    border: none;
+}
+
+.voltar i{
+    font-size: 18px;
+    color: var(--text-color);
+}
+
+.perfil img {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+}
+.container {
+    max-width: var(--max-width);
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 8px;
+    gap: 5px;
+    overflow: hidden;
+}
+
+.perfil-container {
+    margin-top: 5vh;
+    background: var(--perfil-bg);
+    max-width: var(--max-width);
+    width: 100%;
+    height: 10vh;
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: var(--radius);
+}
+.foto{
+    position: absolute;
+    margin-top: -55px;
+}
+
+.foto img {
+    border-radius: 50%;
+    width: 95px;
+    height: 95px;
+}
+
+.container-editar{
+    width: 100%;
+    position: relative;
+    align-self: stretch;
+    justify-content: flex-start;
+    margin-left: 150px;
+    margin-top: 10px;
+}
+
+.editar{
+    width: 10%;
+    background: var(--top-bg);
+    border-radius: 100%;
+    align-items: center;
+    justify-content: center;
+    padding: 2.5px;
+   
+}
+
+.editar img{
+    width: 20px;
+    height: 20px;
+}
+
+.form {
+    margin-top: 2vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 8.5px;
+    align-items: center;
+}
+
+.grupo-input {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 3px;
+    position: relative;
+}
+
+.grupo-input label {
+    font-size: 14px;
+    color: var(--cinza);
+    justify-content: space-between;
+    display: flex;
+    width: 100%;
+}
+
+.grupo-input input{
+    padding: 10px 12px;
+    border: 2px solid var(--border);
+    background: var(--border);
+    border-radius: var(--radius);
+    font-size: 15px;
+    width: 100%;
+    outline: none;
+    transition: 0.2s;
+    color: var(--text-color);
+}
+
+.grupo-input input:focus {
+    border-color: var(--verde);
+}
+
+.grupo-input textarea{
+    padding: 10px 12px;
+    border: 2px solid var(--border);
+    border-radius: var(--radius);
+    background: var(--border);
+    font-size: 15px;
+    width: 100%;
+    outline: none;
+    transition: 0.2s;
+    margin-bottom: 5vh;
+    color: var(--text-color);
+}
+
+.grupo-input textarea:focus {
+    border-color: var(--verde);
+}
+
+
+.btn-avancar {
+    background: var(--btn-bg);
+    color: var(--btn-color);
+}
+
+.btn-avancar:hover {
+    background: var(--primary);
+    transform: scale(1.02);
+}
+
+.btn-avancar {
+    font-size: 15px;
+    height: 35px;
+}
+
+.btn{
+    width: 80%;
+    height: 35px;
+    border-radius: var(--radius);
+    font-size: 16px;
+    font-weight: 500;
+    border: none;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+#msg{
+    position: fixed;
+    bottom: 9vh;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(0,0,0,0.5);
+    color: white;
+    width: 30vh;
+    border-radius: 6px;
+    z-index: 9999;
+    display: none;
+    text-align: center;
+}
