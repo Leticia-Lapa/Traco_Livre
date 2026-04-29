@@ -1,0 +1,277 @@
+:root {
+    --verde: #006A69;
+    --cinza: #3F4948;
+    --btn-bg: #035958;
+    --btn-color: white;
+    --bg: #fff;
+    --text-color: #222;
+    --max-width: 420px;
+    --radius: 9px;
+    --primary: #0a7269;
+    --voltar-bg: #D9D9D9;
+    --cd-email: #A2CEBC;
+    --icons: black;
+    --texto: black;
+     --border: #D9D9D9;
+
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+html, body {
+    background: var(--bg);
+    max-width: var(--max-width);
+    justify-content: center;
+    height: 100%;
+}
+
+.container {
+    max-width: var(--max-width);
+    width: 100%;
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.voltar {
+    margin-top: 15vh;
+    background: var(--voltar-bg);
+    padding: 6px;
+    border-radius: 3px;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 35px;
+    height: 45px;
+    align-self: stretch;
+}
+
+.voltar img {
+    width: 20px;
+    height: 20px;
+}
+
+.voltar i {
+    color: var(--icons);
+}
+
+.voltar a {
+    color: var(--icons);
+}
+
+.texto {
+    width: 100%;
+    margin-top: 12px;
+}
+
+.texto h1 {
+    font-size: clamp(20px, 4vw, 26px);
+    color: var(--verde);
+    line-height: 1.3;
+}
+
+.texto p {
+    font-size: clamp(14px, 3vw, 18px);
+    color: var(--cinza);
+    margin-top: 4px;
+    line-height: 1.3;
+}
+
+.texto-concluiu {
+    width: 100%;
+    margin-top: 24vh;
+    margin-bottom: 25vh;
+}
+
+.texto-concluiu h1{
+    font-size: clamp(20px, 4vw, 26px);
+    color: var(--verde);
+    line-height: 1.3;
+}
+
+.texto-concluiu p{
+    font-size: clamp(14px, 3vw, 18px);
+    color: var(--cinza);
+    margin-top: 4px;
+    line-height: 1.3;
+}
+
+.form {
+    margin-top: 8vh;
+    margin-bottom: 10vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    align-items: center;
+}
+
+.grupo-input {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 5px;
+    position: relative;
+}
+
+.grupo-input label {
+    font-size: 14px;
+    color: var(--cinza);
+    justify-content: space-between;
+    display: flex;
+    width: 100%;
+}
+
+.grupo-input input {
+    padding: 10px 12px;
+    border: 2px solid #D9D9D9;
+    border-radius: var(--radius);
+    font-size: 15px;
+    width: 100%;
+    outline: none;
+    transition: 0.2s;
+      background: var(--input);
+    border: var(--border) solid 2px;
+    color: var(--texto);
+}
+
+.grupo-input input:focus {
+    border-color: var(--verde);
+}
+
+.input-icone i{
+    font-size: 18px;
+    color: var(--verde);
+}
+
+.btn {
+    width: 80%;
+    height: 35px;
+    border-radius: var(--radius);
+    background: var(--btn-bg);
+    color: var(--btn-color);
+    font-size: 16px;
+    font-weight: 500;
+    border: none;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.btn:hover {
+    background: var(--primary);
+    transform: scale(1.02);
+}
+
+.grupo-cod {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 5px;
+    position: relative;
+}
+
+.grupo-cod label {
+    font-size: 14px;
+    color: var(--verde);
+    justify-content: space-between;
+    display: flex;
+    width: 100%;
+}
+
+.codigo{
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0px;
+    gap: 23px;
+    align-self: stretch;
+}
+
+.codigo input{
+    margin: 0 auto;
+    width: 40px;
+    height: 39px;
+    align-self: stretch;
+    border-radius: var(--radius);
+    border: none;
+    background: var(--cd-email);
+    flex: none;
+    order: 1;
+    flex-grow: 0;
+}
+
+.codigo input:focus {
+    outline: 2px solid var(--verde);
+}
+
+.input-icone{
+    position: relative;
+    display: inline-block;
+}
+
+.input-icone input{
+    padding-right: 40px;
+}
+
+.input-icone span{
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%); 
+}
+
+
+
+/* RESPONSIVIDADE EXTRA */
+@media (max-width: 420px) {
+    .container {
+        padding: 12px;
+    }
+    .btn {
+        font-size: 15px;
+        height: 35px;
+    }
+    .voltar {
+        width: 34px;
+        height: 45px;
+        padding: 8px;
+    }
+    .voltar img {
+        width: 18px;
+        height: 18px;
+    }
+}
+
+@media (max-width: 300px) {
+    .texto h1 {
+        font-size: 18px;
+    }
+    .texto p {
+        font-size: 13px;
+    }
+
+    .btn {
+        width: 100%;
+        font-size: 14px;
+        height: 32px;
+    }
+
+    .grupo-input input {
+        padding: 8px 10px;
+        font-size: 14px;
+    }
+
+    .grupo-cod input {
+        padding: 8px 10px;
+        font-size: 14px;
+    }
+}

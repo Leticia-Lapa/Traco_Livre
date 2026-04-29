@@ -1,0 +1,19 @@
+.dark-mode{
+    --verde: #A578FF;
+    --cinza: #3F4948;
+    --btn-bg: #422871;
+    --btn-color: white;
+    --bg: #100D11;
+    --text-color: #FFFFFF;
+    --max-width: 420px;
+    --radius: 8px;
+    --primary: #381422;
+    --voltar-bg: #231B28;
+    --cd-email: #A2CEBC;
+    --btn-nao: #E9EFEE;
+    --btn-nao-color: #161D1C;
+    --btn-sim: #422871;
+      --icons: white;
+        --modal-bg:#231B28;
+    --modal-text: white;
+}

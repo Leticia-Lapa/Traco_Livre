@@ -1,0 +1,105 @@
+<?php
+include_once 'conectaBD.php';
+session_start();
+
+$id_relato = $_POST['id_relato'] ?? null;
+$titulo = $_POST['titulo'] ?? '';
+$tipo = $_POST['tipo'] ?? '';
+$descricao = $_POST['descricao'] ?? '';
+$urls = isset($_POST['urls']) ? (array)$_POST['urls'] : [];
+$tags = isset($_POST['tags']) ? (array)$_POST['tags'] : [];
+
+$fk_id_usuario = $_SESSION['id_usuario'] ?? 1;
+
+if (!$id_relato || empty($descricao) || empty($tipo)) {
+    echo "Dados insuficientes para atualizar.";
+    exit;
+}
+
+try {
+    $conn->beginTransaction();
+
+    $sql_update_rel = "UPDATE tb_relato SET nm_titulo_relato = :titulo, ds_relato = :descricao, dt_hora_relato = CURRENT_TIMESTAMP, fk_id_tipo_relato = :tipo WHERE id_relato = :id";
+    $stmt_update_rel = $conn->prepare($sql_update_rel);
+    $stmt_update_rel->execute([
+        ':titulo' => $titulo,
+        ':descricao' => $descricao,
+        ':id' => $id_relato,
+        ':tipo' => $tipo
+    ]);
+
+    $sql_tags_atuais = "SELECT t.nm_tag FROM tb_relato_tag rt JOIN tb_tag t ON t.id_tag = rt.fk_id_tag WHERE rt.fk_id_relato = :id";
+    $stmt_tags_atuais = $conn->prepare($sql_tags_atuais);
+    $stmt_tags_atuais->execute([':id' => $id_relato]);
+    $tags_atuais_db = $stmt_tags_atuais->fetchAll(PDO::FETCH_COLUMN);
+
+    $tags_a_adicionar = array_diff($tags, $tags_atuais_db);
+    $tags_a_remover = array_diff($tags_atuais_db, $tags);
+
+    if (!empty($tags_a_remover)) {
+        $ids_remover = [];
+        foreach ($tags_a_remover as $nm_tag) {
+            $stmt = $conn->prepare("SELECT id_tag FROM tb_tag WHERE nm_tag = :tag");
+            $stmt->execute([':tag' => $nm_tag]);
+            $ids_remover[] = $stmt->fetchColumn();
+        }
+         if (!empty($ids_remover)) {
+            // Apenas prepara e executa se houver IDs para remover
+            $placeholders = str_repeat('?,', count($ids_remover) - 1) . '?';
+            $sql_delete = "DELETE FROM tb_relato_tag WHERE fk_id_relato = ? AND fk_id_tag IN ($placeholders)";
+            $stmt_delete = $conn->prepare($sql_delete);
+            $stmt_delete->execute(array_merge([$id_relato], $ids_remover));
+        }
+    }
+
+    foreach ($tags_a_adicionar as $nm_tag) {
+        $stmt_check = $conn->prepare("SELECT id_tag FROM tb_tag WHERE nm_tag = :tag");
+        $stmt_check->execute([':tag' => $nm_tag]);
+
+        if ($stmt_check->rowCount() > 0) {
+            $id_tag = $stmt_check->fetch(PDO::FETCH_ASSOC)['id_tag'];
+        } else {
+            $stmt_insert = $conn->prepare("INSERT INTO tb_tag (nm_tag) VALUES (:tag)");
+            $stmt_insert->execute([':tag' => $nm_tag]);
+            $id_tag = $conn->lastInsertId();
+        }
+
+        $stmt_rel_tag = $conn->prepare("INSERT INTO tb_relato_tag (fk_id_relato, fk_id_tag) VALUES (:rel, :tag)");
+        $stmt_rel_tag->execute([':rel' => $id_relato, ':tag' => $id_tag]);
+    }
+
+    $sql_urls_atuais = "SELECT url FROM tb_imagens_relato WHERE fk_id_relato= :id";
+    $stmt_urls_atuais = $conn->prepare($sql_urls_atuais);
+    $stmt_urls_atuais->execute([':id' => $id_relato]);
+    $urls_atuais_db = $stmt_urls_atuais->fetchAll(PDO::FETCH_COLUMN);
+
+    $urls_a_adicionar = array_diff($urls, $urls_atuais_db);
+    $urls_a_remover = array_diff($urls_atuais_db, $urls);
+
+    if (!empty($urls_a_remover)) {
+        $placeholders = str_repeat('?,', count($urls_a_remover) - 1) . '?';
+        $sql_delete_img = "DELETE FROM tb_imagens_relato WHERE fk_id_relato = ? AND url IN ($placeholders)";
+        $stmt_delete_img = $conn->prepare($sql_delete_img);
+        $stmt_delete_img->execute(array_merge([$id_relato], $urls_a_remover));
+    }
+
+    if (!empty($urls_a_adicionar)) {
+        $sql_insert_img = "INSERT INTO tb_imagens_relato (url, fk_id_relato) VALUES ";
+        $placeholders = implode(', ', array_fill(0, count($urls_a_adicionar), '(?, ?)'));
+        $params = [];
+        foreach ($urls_a_adicionar as $url) {
+            $params[] = $url;
+            $params[] = $id_relato;
+        }
+        $sql_insert_img .= $placeholders;
+        $stmt_insert_img = $conn->prepare($sql_insert_img);
+        $stmt_insert_img->execute($params);
+    }
+
+    $conn->commit();
+    echo "Relato atualizado com sucesso!";
+
+} catch (PDOException $e) {
+    $conn->rollBack();
+    echo "Erro: " . $e->getMessage();
+}
