@@ -1,0 +1,436 @@
+:root {
+    --bg-color: #f8f9fa;
+    --top-bg: #fff;
+    --card-bg: #E9EFEE;
+    --cont-bg: #E3E9E8;
+    --popup-bg: #fff;
+    --btn-color: white;
+    --primary: #0a7269;
+    --accent: #006A69;
+    --text-color: #222;
+    --muted: #666;
+    --border: #ddd;
+    --navegacao-bg:  #F4F4F4;
+    --navegacao-div: #E9EFEE;
+    --text-tag: #fff;
+    --navegacao-select: #A2CEBC;
+    --max-width: 420px;
+    --radius: 9px;
+    --btn-bg: #035958;
+    --cinza: #3F4948;
+    --verde: #006A69;
+    --voltar-bg: #D9D9D9;
+    --perfil-bg: #EFF5F4;
+    --bio-bg: #DDE4E3;
+    --form-bg: #DDE4E3;
+    --btn-nao: #E9EFEE;
+    --btn-nao-color: #161D1C;
+    --btn-sim: #006A69;
+     --icons: black;
+     --conf: #0a7269;
+     --ptext:#333;
+}
+#seguir{
+ border: none;
+width: 133px;
+height: 34px;
+color: var(--btn-color);
+background:var(--primary);
+border-radius: 9px;
+
+}
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+html, body{
+    height: 100%;
+    padding: 0;
+    overflow: hidden;
+}
+body {
+    background: var(--top-bg);
+    max-width: var(--max-width);
+    margin: auto;
+}
+
+/* Topo */
+.top-bar {
+    width: 100%;
+    max-width: var(--max-width);
+    background: var(--top-bg);
+    padding: 8px 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    position: fixed;
+    top: 0;
+    z-index: 1001;
+    align-items: end;
+}
+
+.l1 {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.notificacoes{
+    position: relative;
+
+}
+.notificacoes i{
+    font-size: 20px;
+    cursor: pointer;
+    text-decoration: none;
+    color: var(--icons);
+}
+
+.container {
+    max-width: var(--max-width);
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 8px;
+    gap: 5px;
+    margin-top: 80px;
+    overflow: hidden;
+}
+
+.perfil-container {
+    background: var(--perfil-bg);
+    max-width: var(--max-width);
+    width: 100%;
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: var(--radius);
+}
+
+.foto{
+    position: absolute;
+    margin-top: -50px;
+}
+
+.foto img {
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+}
+.container-pontos{
+    width: 100%;
+    position: relative;
+    align-self: stretch;
+    justify-content: flex-end;
+}
+.options-btn{
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+.options-btn i{
+    color: var(--text-color);
+    font-size: 18px;
+}
+
+.texto{
+    margin-top: 50px;
+}
+
+.texto h1 {
+    text-align: center;
+    font-size: clamp(16px, 3vw, 20px);
+    color: var(--verde);
+    margin-top: 8px;
+}
+
+.bio {
+    background: var(--bio-bg);
+    border-radius: var(--radius);
+    align-self: stretch;
+    padding: 8px;
+    margin-top: 8px;
+}
+
+.bio h1 {
+    font-size: clamp(14px, 2.5vw, 16px);
+    color: var(--cinza);
+}
+
+.bio p {
+    font-size: clamp(12px, 2.5vw, 15px);
+    color: var(--cinza);
+    margin-top: 4px;
+}
+
+.msg{
+    margin-top: 20px;
+    width: 100%;
+}
+.msg h1 {
+    text-align: center;
+    font-size: clamp(16px, 3vw, 20px);
+    color: var(--verde);
+    margin-top: 8px;
+}
+
+.msg p {
+    text-align: center;
+    font-size: clamp(14px, 2.5vw, 15px);
+    color: var(--cinza);
+    margin-top: 4px;
+}
+
+.btn-perfil {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    text-align: center;
+    margin-top: 10px;
+}
+
+.btn-perfil a{
+    text-decoration: none;
+    color: var(--text-color);
+}
+
+.form {
+    width: 100%;
+    display: flex;
+    background: var(--form-bg);
+    position: relative;
+    justify-content: flex-end;
+    padding: 1px;
+    padding-top: 2px;
+    padding-left: 10px;
+}
+
+.form-pasta{
+    width: 100%;
+}
+.pasta-container {
+    display: flex; /* Alinha os cards em linha */
+    overflow-x: auto; /* Adiciona rolagem horizontal quando necessário */
+    flex-wrap: nowrap; 
+}
+
+.pasta {
+    position: relative;
+    align-items: flex-start; 
+    border-radius: 10px;
+    height: 86px;
+    align-self: stretch;
+    flex: 0 0 86px; /* Define que os cards terão uma largura fixa (ex: 200px) e não encolherão */
+    margin-right: 6px; /* Espaçamento entre os cards */
+}
+
+.galeria-container{
+    width: 100%;
+    max-width: var(--max-width);
+    flex: 1 1 auto;          /* ocupa o espaço restante */
+    display: flex;
+    flex-direction: column;
+    min-height: 0;           /* ESSENCIAL para que .galeria com overflow funcione dentro de flex container */
+    box-sizing: border-box;
+    padding-bottom: 9vh;
+    gap: 0.5vh;
+}
+
+.galeria {
+    width: 100%; 
+    max-width: var(--max-width);
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 5px;
+    padding: 1px;
+    overflow-y: auto;
+    box-sizing: border-box;
+    align-self: stretch;
+    padding-bottom: 10vh;
+}
+
+.item-galeria {
+    position: relative;
+    align-items: flex-start; 
+    height: 70px;
+    align-self: stretch;
+    flex: 0 0 90px; /* Define que os cards terão uma largura fixa (ex: 200px) e não encolherão */
+} 
+
+.img-galeria {
+    width: 100%; /* Ocupa 100% da largura do seu container */
+    height: 100%;
+    display: block; /* Remove o espaço extra abaixo da imagem */
+    object-fit: cover;
+}
+
+.popup {
+    position: absolute;
+    top: 10px;
+    right: 0;
+    background: var(--popup-bg);
+    transform: translateX(-30px);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    padding: 1px;
+    min-width: 95px;
+    z-index: 2000;
+}
+
+.popup.hidden {
+    display: none;
+}
+
+.popup button {
+    background: none;
+    border: none;
+    padding: 5px;
+    text-align: left;
+    cursor: pointer;
+    font-size: 14px;
+    color: var(--icons);
+}
+
+.popup button:hover {
+    background-color: var(--bio-bg);
+    border-radius: 5px;
+}
+
+.navegacao {
+    position: fixed;      
+    bottom: 0;           
+    left: 0;  
+    background: var(--navegacao-bg);
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 9px;
+    height: 8vh;
+    padding: 20px;
+    /* position: sticky; */
+    width: 100%;
+    z-index: 1000;
+}
+
+.navegacao div {
+    background: var(--navegacao-div);
+    border-radius: 15px;
+    height: 7vh;
+    width: 7vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.navegacao img {
+    width: 24px;
+}
+
+.navegacao .select {
+    background: var(--navegacao-select);
+}
+
+dialog::backdrop {
+    background-color: rgba(0, 0, 0, 0.5); /* Fundo escurecido */
+}
+
+.modal{
+    position: fixed;
+    top: auto;
+    bottom: 0;
+    border: none;
+    background-color: var(--top-bg);
+    border-radius: 8px 8px 0 0px;
+    padding: 10px; 
+    left: 0; /* adicionar */
+    width: 100vw; /* largura total da viewport */
+    max-width: 100%;
+    overflow: hidden;
+    height: 70vh;
+}
+
+.conteudo-modal{
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 8px;
+} 
+.conteudo-modal h3{
+    font-size: clamp(16px, 3vw, 12px);
+    color: var(--text-color);
+    line-height: 1.3;
+    text-align: center; /* centraliza o texto */
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.btn{
+    width: 80%;
+    height: 35px;
+    border: none;
+    cursor: pointer;
+    border-radius: var(--radius);
+    font-size: 16px;
+    font-weight: 500;
+    transition: 0.2s;
+}
+
+.cancelar{
+    background: var(--border);
+    color: var(--btn-nao-color);
+    margin-bottom: 10px;
+}
+
+.form {
+    background: none;
+    margin-top: 1vh;
+    margin-bottom: 3vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    align-items: center;
+}
+
+.form button{
+    background: none;
+    border: none;
+    width: 100%;
+    justify-items: center;
+    text-align: center;
+}
+.opcao {
+    background: var(--border);
+    border-radius: var(--radius);
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 60px;
+    gap: 5px;
+    position: relative;
+    justify-content: center;
+}
+
+.opcao p{
+    margin-left: 1vh;
+    font-size: clamp(14px, 3vw, 18px);
+    line-height: 1.3;
+    color: var(--text-color);
+}

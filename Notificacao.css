@@ -1,0 +1,167 @@
+:root {
+    --verde: #006A69;
+    --cinza: #3F4948;
+    --btn-bg: #035958;
+    --btn-color: white;
+    --bg: #fff;
+    --text-color: #222;
+    --max-width: 420px;
+    --radius: 8px;
+    --primary: #0a7269;
+    --voltar-bg: #D9D9D9;
+    --cd-email: #A2CEBC;
+    --notif: #EFF5F4;
+    --texto: black;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+html, body {
+    background: var(--bg);
+    max-width: var(--max-width);
+    justify-content: center;
+    height: 100%;
+
+    
+}
+
+.container {
+    max-width: var(--max-width);
+    width: 100%;
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.voltar {
+    margin-top: 5vh;
+    background: var(--voltar-bg);
+    padding: 6px;
+    border-radius: 3px;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 35px;
+    height: 45px;
+    align-self: stretch;
+    border: none;
+}
+
+.voltar img {
+    width: 20px;
+    height: 20px;
+}
+.voltar i{
+    width: 20px;
+    height: 20px;
+     color: var(--icons);
+}
+
+.texto {
+    width: 100%;
+    margin-top: 12px;
+}
+
+.texto h1 {
+    font-size: clamp(20px, 4vw, 26px);
+    color: var(--text-color);
+    line-height: 1.3;
+}
+
+.texto p {
+    font-size: clamp(14px, 3vw, 18px);
+    color: var(--cinza);
+    margin-top: 4px;
+    line-height: 1.3;
+}
+
+.form {
+    margin-top: 1vh;
+    margin-bottom: 3vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    align-items: center;
+}
+
+.notificacao{
+    background: var(--notif);
+    border-radius: var(--radius);
+    display: flex;
+    width: 100%;
+    gap: 5px;
+    position: relative;
+    height: auto;
+    justify-content: center;
+    align-items: center;
+    padding: 5px;
+    color: var(--texto) ;
+}
+
+.avatar {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+}
+
+.conteudo{
+    background: none;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    justify-content: center;
+}
+
+.conteudo span{
+    font-size: small;
+    margin-top: 1vh;
+    margin-bottom: 1vh;
+    color: var(--texto);
+}
+
+.conteudo p{
+    font-size: medium;
+    margin-bottom: 2vh;
+    color: var(--texto);
+}
+
+
+
+
+
+
+/* RESPONSIVIDADE EXTRA */
+@media (max-width: 420px) {
+    .container {
+        padding: 12px;
+    }
+    .voltar {
+        width: 34px;
+        height: 45px;
+        padding: 8px;
+    }
+    .voltar img {
+        width: 18px;
+        height: 18px;
+    }
+}
+
+@media (max-width: 300px) {
+    .texto h1 {
+        font-size: 18px;
+    }
+    .texto p {
+        font-size: 13px;
+    }
+
+    .tema p {
+        font-size: 13px;
+    }
+}

@@ -1,0 +1,203 @@
+:root {
+    --verde: #006A69;
+    --cinza: #3F4948;
+    --btn-bg: #035958;
+    --btn-color: white;
+    --bg: #fff;
+    --text-color: #222;
+    --max-width: 420px;
+    --radius: 8px;
+    --primary: #0a7269;
+    --voltar-bg: #D9D9D9;
+    --cd-email: #A2CEBC;
+    --chat-color: #5B8672;
+    --user-color: #00513B;
+    --bg-color: #f8f9fa;
+    --top-bg: #fff;
+    --card-bg: #E9EFEE;
+    --cont-bg: #E3E9E8;
+    --popup-bg: #fff;
+    --primary: #0a7269;
+    --text-color: #222;
+    --muted: #666;
+    --border: #ddd;
+    --navegacao-bg:  #F4F4F4;
+    --navecacao-div: #E9EFEE; 
+    --text-tag: #fff;
+    --navegacao-select: #A2CEBC;
+    --notif: #EFF5F4;
+    --btn-pesquisa: #1B6B51;
+    --voltar-bg: #D9D9D9;
+    --verde: #006A69;
+    --icons: black;
+      --texto: black;
+      --border:#D9D9D9;
+    --recebida: #808682;
+    --enviada: #88B5A0;
+    --input:white;
+    --border:#D9D9D9;
+    --textoo: white;
+
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+html, body {
+    background: var(--bg);
+    max-width: var(--max-width);
+    justify-content: center;
+    height: 100vh;
+}
+
+.voltar {
+    margin-top: 5vh;
+    background: var(--voltar-bg);
+    padding: 6px;
+    border-radius: 3px;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 35px;
+    height: 45px;
+    align-self: stretch;
+    border: none;
+}
+
+.voltar img {
+    width: 20px;
+    height: 20px;
+}
+.voltar i{
+    width: 20px;
+    height: 20px;
+    color: var(--icons);
+}
+
+/* COMEÇA STYLE DA TELA DE CONVERSAS */
+.top-bar {
+    width: 100%;
+    max-width: var(--max-width);
+    background: var(--top-bg);
+    padding: 8px 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    position: fixed;
+    top: 0;
+    z-index: 1001;
+}
+
+/* Linha 1: Perfil + Notificações */
+.l1 {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+/* Linha 3: Titulo da Tela */
+.l3{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 2px; /* era 8px */
+    color: var(--text-color);
+}
+
+.msg{
+    margin-top: 50%;
+    width: 100%;
+}
+.msg h1 {
+    text-align: center;
+    font-size: clamp(16px, 3vw, 20px);
+    color: var(--verde);
+    margin-top: 8px;
+}
+
+.msg p {
+    text-align: center;
+    font-size: clamp(14px, 2.5vw, 15px);
+    color: var(--cinza);
+    margin-top: 4px;
+}
+
+.container {
+    max-width: var(--max-width);
+    width: 100%;
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: 10vh; 
+}
+
+.form {
+    margin-top: 17vh;
+    margin-bottom: 3vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    align-items: center;
+}
+.form a{
+    width: 100%;
+    justify-items: center;
+    text-align: center;
+    text-decoration: none;
+    color: var(--text-color);
+}
+
+.conversa{
+    background: var(--notif);
+    border-radius: var(--radius);
+    display: flex;
+    width: 100%;
+    gap: 5px;
+    position: relative;
+    height: 60px;
+    justify-content: flex-start; /* alinha no início da linha */
+    align-items: center;         /* centraliza verticalmente */
+    padding: 5px;
+}
+
+.avatar{
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+}
+
+.conteudo{
+    background: none;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    justify-content: center;
+}
+
+.info{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.conversa span{
+    font-size: medium;
+    margin-top: 1vh;
+    margin-bottom: 1vh;
+    color: var(--text-color);
+}
+
+.conversa button{
+    background: none;
+    border: none;
+    color: var(--primary);
+    font-size: 16px;
+    font-weight: bolder;
+}

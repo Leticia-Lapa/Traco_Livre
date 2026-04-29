@@ -1,0 +1,554 @@
+:root {
+    --bg-color: #f8f9fa;
+    --top-bg: #fff;
+    --card-bg: #E9EFEE;
+    --cont-bg: #E3E9E8;
+    --popup-bg: #fff;
+    --btn-color: white;
+    --primary: #0a7269;
+    --accent: #006A69;
+    --text-color: #222;
+    --muted: #666;
+    --border: #ddd;
+    --navegacao-bg:  #F4F4F4;
+    --navegacao-div: #E9EFEE;
+    --text-tag: #fff;
+    --navegacao-select: #A2CEBC;
+    --max-width: 420px;
+    --radius: 9px;
+    --btn-bg: #035958;
+    --cinza: #3F4948;
+    --verde: #006A69;
+    --voltar-bg: #D9D9D9;
+    --perfil-bg: #EFF5F4;
+    --bio-bg: #DDE4E3;
+    --form-bg: #DDE4E3;
+    --btn-nao: #E9EFEE;
+    --btn-nao-color: #161D1C;
+    --btn-sim: #006A69;
+    --texto:black;
+    --icons: black;
+    --bg-nao: #E9EFEE;
+}
+
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+html, body{
+    height: 100%;
+    padding: 0;
+    overflow: hidden;
+}
+body {
+    background: var(--top-bg);
+    max-width: var(--max-width);
+    margin: auto;
+}
+
+/* Topo */
+.topo {
+    width: 100%;
+    max-width: var(--max-width);
+    background: var(--top-bg);
+    padding: 8px 12px;
+    display: flex;
+    align-items: center;   
+    gap: 6px;
+    position: sticky;
+    justify-content: space-between;
+}
+
+.voltar {
+    background: var(--voltar-bg);
+    padding: 6px;
+    border-radius: 3px;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 35px;
+    height: 45px;
+    align-self: stretch;
+    border: none;
+}
+
+.voltar i{
+    font-size: 18px;
+    color: var(--icons);
+}
+
+.menu-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+.menu-btn img {
+    width: 28px;
+}
+
+.container {
+    max-width: var(--max-width);
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 8px;
+    gap: 5px;
+    overflow: hidden;
+}
+
+.pasta-container {
+    background: var(--perfil-bg);
+    max-width: var(--max-width);
+    width: 100%;
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: var(--radius);
+}
+
+.cont-header{
+    width: 100%;
+    max-width: var(--max-width);
+    display: grid;
+    grid-template-columns: 1fr auto; 
+    margin-top: 10px;
+    padding: 8px 12px;   
+    gap: 6px;
+    align-items: center;
+    text-align: center;
+}
+
+.cont-header h1{
+    justify-self: center;    
+    align-items: center;
+    text-align: center;
+    font-size: clamp(18px, 3vw, 18px);
+    color: var(--text-color);
+}
+.options-btn{
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.options-btn img{
+    width: 4px;
+}
+.options-btn i{
+    width: 4px;
+    color: var(--icons);
+}
+
+.btn-form svg{
+    color:var(--icons);
+}
+
+.menu-btn svg{
+    color:var(--icons);
+}
+
+.bio {
+    background: var(--bio-bg);
+    border-radius: var(--radius);
+    align-self: stretch;
+    padding: 8px;
+    margin-top: 8px;
+}
+
+.bio h1 {
+    font-size: clamp(14px, 2.5vw, 16px);
+    color: var(--cinza);
+}
+
+.bio p {
+    font-size: clamp(12px, 2.5vw, 15px);
+    color: var(--cinza);
+    margin-top: 4px;
+}
+
+.msg{
+    margin-top: 20px;
+    width: 100%;
+}
+.msg h1 {
+    text-align: center;
+    font-size: clamp(16px, 3vw, 20px);
+    color: var(--verde);
+    margin-top: 8px;
+}
+
+.msg p {
+    text-align: center;
+    font-size: clamp(14px, 2.5vw, 15px);
+    color: var(--cinza);
+    margin-top: 4px;
+}
+.form {
+    width: 100%;
+    display: flex;
+    background: var(--form-bg);
+    position: relative;
+    justify-content: flex-end;
+    padding-top: 2px;
+    padding-bottom: 2px;
+    padding-right: 10px;
+}
+
+.btn-form {
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.btn-form img{
+    width: 18px;
+    height: 18px;
+}
+
+.options-btn svg{
+    color:var(--icons);
+}
+
+.galeria-container{
+    width: 100%;
+    max-width: var(--max-width);
+    flex: 1 1 auto;         /* ocupa o espaço restante  */
+    display: flex;
+    flex-direction: column;
+    min-height: 0;           /* ESSENCIAL para que .galeria com overflow funcione dentro de flex container */
+    box-sizing: border-box;
+    padding-bottom: 7.5vh;
+}
+
+.galeria {
+    width: 100%; 
+    max-width: var(--max-width);
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 5px;
+    padding: 1px;
+    overflow-y: auto;
+    box-sizing: border-box;
+    align-self: stretch;
+    /* padding-bottom: 10vh; */
+}
+
+.item-galeria {
+    position: relative;
+    align-items: flex-start; 
+    height: 70px;
+    /* display: flex;
+    justify-content: center;
+    align-items: center;  */
+    align-self: stretch;
+    flex: 0 0 90px; /* Define que os cards terão uma largura fixa (ex: 200px) e não encolherão */
+} 
+
+.img-galeria {
+    width: 100%; /* Ocupa 100% da largura do seu container */
+    height: 100%;
+    display: block; /* Remove o espaço extra abaixo da imagem */
+    object-fit: cover;
+}
+
+
+.popup-menu {
+    display: none;
+    flex-direction: column;
+    gap: 6px;
+    padding: 7px 16px;
+    min-width: 120px;
+    position: absolute;
+    top: 1vh;
+    right: 0;
+    transform: translateX(-45px);
+    background: var(--popup-bg);
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    font-size: 15px;
+    z-index: 3000;
+    color: var(--texto);
+}
+
+.popup-menu:not(.hidden) {
+    display: flex;
+}
+
+.popup-menu div {
+    padding: 6px 4px;
+    border-radius: 5px;
+    cursor: pointer;
+     color: var(--texto);
+}
+
+.popup-menu div:hover {
+    background: #f0f0f0;
+}
+
+.popup {
+    position: absolute;
+    right: 0;
+    top: 14vh;
+    transform: translateX(-50px);
+    background: var(--popup-bg);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+    padding: 8px;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    z-index: 2000;
+     color: var(--texto);
+}
+
+.hidden {
+    display: none;
+}
+
+.popup button {
+    background: none;
+    border: none;
+    padding: 5px;
+    text-align: left;
+    cursor: pointer;
+    font-size: 14px;
+    color: #333;
+     color: var(--texto);
+}
+
+.popup button:hover {
+    background-color: var(--bg-color);
+    border-radius: 5px;
+}
+.navegacao {
+    position: fixed;      
+    bottom: 0;           
+    left: 0;  
+    background: var(--navegacao-bg);
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 9px;
+    height: 8vh;
+    padding: 20px;
+    /* position: sticky; */
+    width: 100%;
+    z-index: 1000;
+}
+
+.navegacao div {
+    background: var(--navegacao-div);
+    border-radius: 15px;
+    height: 7vh;
+    width: 7vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.navegacao img {
+    width: 24px;
+}
+
+.navegacao .select {
+    background: var(--navegacao-select);
+}
+
+dialog::backdrop {
+    background-color: rgba(0, 0, 0, 0.5); /* Fundo escurecido */
+}
+
+.modalConfirmarAcao{
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border: none;
+    border-radius: 8px;
+    padding: 10px;
+    width: 80%;
+    background: var(--bg-color);
+}
+
+.conteudo-modal{
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 8px;
+} 
+.conteudo-modal h3{
+    font-size: clamp(16px, 3vw, 12px);
+    color: var(--text-color);
+    line-height: 1.3;
+    text-align: center; /* centraliza o texto */
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+
+.btn{
+    width: 80%;
+    height: 35px;
+    border: none;
+    cursor: pointer;
+    border-radius: var(--radius);
+    font-size: 16px;
+    font-weight: 500;
+    transition: 0.2s;
+}
+
+.sim{
+    background: var(--btn-sim);
+    color: var(--btn-color);
+}
+
+.nao{
+    background: var(--bg-nao);
+    color: var(--btn-nao-color);
+}
+
+
+
+
+.modalSelect {
+    position: fixed;
+    top: auto;
+    bottom: 0;
+    border-radius: 8px 8px 0 0px;
+    padding: 10px; 
+    left: 0;
+    width: 100vw;
+    max-width: 100%;
+    height: 70vh;
+    overflow: hidden;
+    border: none;
+    background: var(--bg-color);
+}
+
+.conteudoModal, #formAdicionar, #formRemover{
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.modalTopo{
+    margin-top: 1vh;
+    display: flex;
+    flex-shrink: 0;
+    width: 100%;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    position: sticky;
+    flex-direction: row;
+    top: 0;
+    background: var(--bg);
+    padding: 8px 0;
+    gap: 5px;
+}
+
+.modalTopo h3{
+    font-size: clamp(16px, 3vw, 12px);
+    color: var(--text-color);
+    line-height: 1.3;
+    text-align: center;
+    margin-top: 5px;
+}
+
+.btn-voltar {
+    background: var(--voltar-bg);
+    padding: 6px;
+    border-radius: 3px;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 35px;
+    height: 45px;
+    align-self: stretch;
+    border: none;
+    left: 10px;
+}
+.btn-voltar img {
+    width: 20px;
+    height: 20px;
+}
+
+.galeriaContainer {
+    width: 100%;
+    flex: 1;
+    overflow-y: auto;
+    display: flex;
+    justify-content: center;
+    margin-top: 1vh;
+}
+
+.Galeria {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 4px;
+    width: 100%;
+    height: 100%;
+}
+
+.itemGaleria {
+    position: relative;
+    overflow: hidden;
+}
+
+.itemGaleria input[type="checkbox"] {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  z-index: 2;
+  width: 18px;
+  height: 18px;
+  accent-color: var(--btn-sim);
+}
+
+.img-wrapper {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+}
+
+.img-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.botoes-modal {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+  bottom: 0;
+}
+
+.botoes-modal button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 8px;
+  font-size: 14px;
+  cursor: pointer;
+  background: var(--btn-bg);
+  color: var(--texto);
+}
+
+.btn-voltar{
+    color: var(--texto);
+}
+
+
+
